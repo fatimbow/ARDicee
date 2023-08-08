@@ -38,20 +38,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
        //
        //sceneView.scene.rootNode.addChildNode(node)
        //
-       //sceneView.autoenablesDefaultLighting = true
+       
+        sceneView.autoenablesDefaultLighting = true
         
-        
-        
-        // Create a new scene
-        let diceScene = SCNScene(named: "art.scnassets/diceCollada.scn")!
-        
-        if let diceNode = diceScene.rootNode.childNode(withName: "Dice", recursively: true) {
-            
-            diceNode.position = SCNVector3(x: 0, y: 0, z: -0.1)
-            
-            sceneView.scene.rootNode.addChildNode(diceNode)
-            
-        }
        
     }
     
@@ -59,11 +48,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         super.viewWillAppear(animated)
         
         // Create a session configuration
+    
         let configuration = ARWorldTrackingConfiguration()
         
         configuration.planeDetection = .horizontal
-
+        
         // Run the view's session
+        
         sceneView.session.run(configuration)
     }
     
@@ -74,32 +65,66 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.pause()
     }
     
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        if anchor is ARPlaneAnchor {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+       
+        if let touch = touches.first {
             
-            let planeAnchor = anchor as! ARPlaneAnchor
+            let touchLocation = touch.location(in: sceneView)
             
-            let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
+            guard let query = sceneView.raycastQuery(from: touchLocation, allowing: .existingPlaneInfinite, alignment: .any)
+            else {
+                return
+            }
             
-            let planeNode = SCNNode()
+            let results = sceneView.session.raycast(query)
             
-            planeNode.position = SCNVector3(x: planeAnchor.center.x, y: 0, z: planeAnchor.center.z)
-            
-            planeNode.transform = SCNMatrix4MakeRotation(-Float.pi/2, 1, 0, 0)
-            
-            let gridMaterial = SCNMaterial()
-            
-            gridMaterial.diffuse.contents = UIImage(named: "art.scnassets/grid.png")
-            
-            plane.materials = [gridMaterial]
-            
-            planeNode.geometry = plane
-            
-            node.addChildNode(planeNode)
-            
-        } else {
-            return
+            if let hitResult = results.first {
+                
+                //Create a new scene
+                let diceScene = SCNScene(named: "/diceCollada.scn")!
+                
+                if let diceNode = diceScene.rootNode.childNode(withName: "Dice", recursively: true) {
+               
+                   diceNode.position = SCNVector3(
+                       x: hitResult.worldTransform.columns.3.x,
+                       y: hitResult.worldTransform.columns.3.y + diceNode.boundingSphere.radius,
+                       z: hitResult.worldTransform.columns.3.z)
+               
+                   sceneView.scene.rootNode.addChildNode(diceNode)
+               
+               } else {
+                   print("Touched somewhere else.")
+               }
+    
+            }
         }
     }
+
+   func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+  
+       if anchor is ARPlaneAnchor {
+  
+           let planeAnchor = anchor as! ARPlaneAnchor
+  
+           let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height:  CGFloat(planeAnchor.extent.z))
+           
+           let gridMaterial = SCNMaterial()
+           gridMaterial.diffuse.contents = UIImage(named: "art.scnassets/grid.png")
+  
+           plane.materials = [gridMaterial]
+  
+           let planeNode = SCNNode()
+           
+           planeNode.geometry = plane
+           planeNode.position = SCNVector3(planeAnchor.center.x, 0, planeAnchor.center.z)
+           planeNode.transform = SCNMatrix4MakeRotation(-Float.pi/2, 1, 0, 0)
+  
+           node.addChildNode(planeNode)
+  
+       } else {
+  
+           return
+       }
+   }
 
 }

@@ -7,22 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F134E6D2A827320009FF6D8 /* diceCollada.dae in Resources */ = {isa = PBXBuildFile; fileRef = 7F134E6C2A827320009FF6D8 /* diceCollada.dae */; };
+		7F134E6F2A827368009FF6D8 /* diceCollada.scn in Resources */ = {isa = PBXBuildFile; fileRef = 7F134E6E2A827368009FF6D8 /* diceCollada.scn */; };
 		7F23E5142A77D36700C68809 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F23E5132A77D36700C68809 /* AppDelegate.swift */; };
 		7F23E5162A77D36700C68809 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F23E5152A77D36700C68809 /* art.scnassets */; };
-		7F23E5182A77D36700C68809 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F23E5172A77D36700C68809 /* ViewController.swift */; };
 		7F23E51B2A77D36700C68809 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F23E5192A77D36700C68809 /* Main.storyboard */; };
 		7F23E51D2A77D36800C68809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F23E51C2A77D36800C68809 /* Assets.xcassets */; };
 		7F23E5202A77D36800C68809 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F23E51E2A77D36800C68809 /* LaunchScreen.storyboard */; };
+		7F4DAA622A8264900084E0CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4DAA612A8264900084E0CF /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F134E6C2A827320009FF6D8 /* diceCollada.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = diceCollada.dae; sourceTree = "<group>"; };
+		7F134E6E2A827368009FF6D8 /* diceCollada.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = diceCollada.scn; sourceTree = "<group>"; };
 		7F23E5102A77D36700C68809 /* ARDicee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDicee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F23E5132A77D36700C68809 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F23E5152A77D36700C68809 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		7F23E5172A77D36700C68809 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7F23E51A2A77D36700C68809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7F23E51C2A77D36800C68809 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F23E51F2A77D36800C68809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7F4DAA612A8264900084E0CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,11 +60,13 @@
 			isa = PBXGroup;
 			children = (
 				7F23E5132A77D36700C68809 /* AppDelegate.swift */,
-				7F23E5172A77D36700C68809 /* ViewController.swift */,
 				7F23E5192A77D36700C68809 /* Main.storyboard */,
+				7F4DAA612A8264900084E0CF /* ViewController.swift */,
 				7F23E5152A77D36700C68809 /* art.scnassets */,
 				7F23E51C2A77D36800C68809 /* Assets.xcassets */,
 				7F23E51E2A77D36800C68809 /* LaunchScreen.storyboard */,
+				7F134E6C2A827320009FF6D8 /* diceCollada.dae */,
+				7F134E6E2A827368009FF6D8 /* diceCollada.scn */,
 			);
 			path = ARDicee;
 			sourceTree = "<group>";
@@ -124,6 +130,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F23E5162A77D36700C68809 /* art.scnassets in Resources */,
+				7F134E6D2A827320009FF6D8 /* diceCollada.dae in Resources */,
+				7F134E6F2A827368009FF6D8 /* diceCollada.scn in Resources */,
 				7F23E5202A77D36800C68809 /* LaunchScreen.storyboard in Resources */,
 				7F23E51D2A77D36800C68809 /* Assets.xcassets in Resources */,
 				7F23E51B2A77D36700C68809 /* Main.storyboard in Resources */,
@@ -137,7 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F23E5182A77D36700C68809 /* ViewController.swift in Sources */,
+				7F4DAA622A8264900084E0CF /* ViewController.swift in Sources */,
 				7F23E5142A77D36700C68809 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,6 +303,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -325,6 +334,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
